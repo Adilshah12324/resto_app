@@ -28,7 +28,7 @@ Route::middleware(['auth','admin'])->name('admin.')->prefix('admin')->group(func
     Route::resource('categories',CategoryController::class);
     Route::resource('menus',MenuController::class);
     Route::resource('tables',TableController::class);
-    Route::resource('reservation',ReservationController::class);
+    Route::resource('reservations',ReservationController::class);
 });
 
 Route::get('/dashboard', function () {
