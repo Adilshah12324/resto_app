@@ -8,33 +8,47 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex m-2 p-2">
-            <a href="{{route('admin.tables.index')}}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Table Index</a>           
+            <a href="{{route('admin.tables.index')}}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Table Index</a>
             </div>
 
             <div class="m-2 p-2 bg-slate-300 rounded">
                 <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                    <form action="" enctype="multipart/form-data">
+                    <form action="{{route('admin.tables.store')}}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
                             <div class="mt-1">
-                                <input type="text" id="title" wire:model.lazy="title" name="title" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <input type="text" name="name" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
                         </div>
                         <div class="sm:col-span-6">
-                            <label for="title" class="block text-sm font-medium text-gray-700">Image</label>
+                            <label for="title" class="block text-sm font-medium text-gray-700">Guest Number</label>
                             <div class="mt-1">
-                                <input type="file" id="image" wire:model.lazy="newImage" name="image" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <input type="number" id="number" name="guest_number" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
                         </div>
                         <div class="sm:col-span-6">
-                            <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
+                            <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                             <div class="mt-1">
-                                <textarea id="body" rows="3" wire:model.lazy="body" name="title" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
-                                </textarea>
+                                <select name="status">
+                                    @foreach(App\Enums\TableStatus::cases() as $status)
+                                        <option value="{{$status->value}}">{{$status->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-6">
+                            <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <div class="mt-1">
+                                <select name="location">
+                                    @foreach(App\Enums\TableLocation::cases() as $location)
+                                        <option value="{{$location->value}}">{{$location->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="mt-4 p-2">
-            <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Store</button>           
+            <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Store</button>
             </div>
                     </form>
 
