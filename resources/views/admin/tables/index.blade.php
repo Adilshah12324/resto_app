@@ -26,6 +26,9 @@
                 <th scope="col" class="px-6 py-3">
                     Location
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +45,16 @@
                 </td>
                 <td class="px-6 py-4">
                     {{$table->location}}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="{{url('admin/tables/'.$table->id.'/edit')}}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">Edit</a>
+                    <form action="{{url('admin/tables/'.$table->id)}}"
+                          method="post"
+                          onsubmit="return confirm('Are you sure?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
