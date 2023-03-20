@@ -30,7 +30,7 @@
                     Reservation Date/Time
                 </th>
                 <th scope="col" class="px-6 py-3 whitespace-nowrap">
-                    Table Id
+                    Table Name
                 </th>
                 <th scope="col" class="px-6 py-3 whitespace-nowrap">
                     Guest Number
@@ -59,7 +59,7 @@
                     {{$reservation->res_date}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$reservation->table_id}}
+                    {{$reservation->table->name}}
                 </td>
                 <td class="px-6 py-4">
                     {{$reservation->guest_number}}

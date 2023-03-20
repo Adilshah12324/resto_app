@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ReservationDate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ReservationStoreRequest extends FormRequest
@@ -26,7 +27,7 @@ class ReservationStoreRequest extends FormRequest
             'last_name' => ['required'],
             'email' => ['required'],
             'tel_number' => ['required'],
-            'res_date' => ['required'],
+            'res_date' => ['required','date'],
             'guest_number' => ['required'],
             'table_id' => ['required'],
         ];
