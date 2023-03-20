@@ -19,30 +19,42 @@
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
                             <div class="mt-1">
-                                <input type="text" name="name" value="{{$menu->name}}" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <input type="text" name="name" value="{{$menu->name}}" class="@error('name') border-red-500 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('name')
+                            <div class="text-sm text-red-400">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Image</label>
                             <img src="{{asset('/storage/'.$menu->image)}}" width="100px" alt="No Image">
 
                             <div class="mt-1">
-                                <input type="file"  name="image" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <input type="file"  name="image" class="@error('image') border-red-500 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('image')
+                            <div class="text-sm text-red-400">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Price</label>
                             <div class="mt-1">
-                                <input type="number"  value="{{$menu->price}}" name="price" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <input type="number"  value="{{$menu->price}}" name="price" class="@error('price') border-red-500 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('price')
+                            <div class="text-sm text-red-400">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
                             <div class="mt-1">
-                                <textarea rows="3" name="description" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <textarea rows="3" name="description" class="@error('description') border-red-500 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                                 {{$menu->description}}
                                 </textarea>
                             </div>
+                            @error('description')
+                            <div class="text-sm text-red-400">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="body" class="block text-sm font-medium text-gray-700">Categories</label>

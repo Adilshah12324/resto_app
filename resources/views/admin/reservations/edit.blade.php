@@ -21,39 +21,55 @@
                             <div class="mt-1">
                                 <input type="text" name="first_name" value="{{$reservation->first_name}}" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('first_name')
+                            <div class="text-sm text-red-500">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Last Name</label>
                             <div class="mt-1">
                                 <input type="text" name="last_name" value="{{$reservation->last_name}}" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('last_name')
+                            <div class="text-sm text-red-500">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Email</label>
                             <div class="mt-1">
                                 <input type="email" name="email" value="{{$reservation->email}}" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('email')
+                            <div class="text-sm text-red-500">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Phone Number</label>
                             <div class="mt-1">
                                 <input type="number" name="tel_number" value="{{$reservation->tel_number}}" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('tel_number')
+                            <div class="text-sm text-red-500">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="res_date" class="block text-sm font-medium text-gray-700">Reservation Date/Time</label>
                             <div class="mt-1">
                                 <input type="datetime-local" name="res_date" value="{{$reservation->res_date}}" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('res_date')
+                            <div class="text-sm text-red-500">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Guest Number</label>
                             <div class="mt-1">
                                 <input type="number" name="guest_number" value="{{$reservation->guest_number}}" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('guest_number')
+                            <div class="text-sm text-red-500">{{$message}}</div>
+                            @enderror
                         </div>
-
-
                         <div class="sm:col-span-6">
                             <label for="location" class="block text-sm font-medium text-gray-700">Table</label>
                             <div class="mt-1">

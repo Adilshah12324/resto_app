@@ -20,12 +20,18 @@
                             <div class="mt-1">
                                 <input type="text" name="name" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('name')
+                            <div class="text-sm text-red-500">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Guest Number</label>
                             <div class="mt-1">
                                 <input type="number" id="number" name="guest_number" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
                             </div>
+                            @error('guest_number')
+                            <div class="text-sm text-red-500">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>

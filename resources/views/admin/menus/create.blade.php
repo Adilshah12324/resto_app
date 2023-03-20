@@ -18,32 +18,44 @@
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
                             <div class="mt-1">
-                                <input type="text" name="name" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <input type="text" name="name" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 @error('name') border-red-500 @enderror">
                             </div>
+                            @error('name')
+                            <div class="text-sm text-red-400">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Image</label>
                             <div class="mt-1">
-                                <input type="file"  name="image" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <input type="file"  name="image" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 @error('image') border-red-500 @enderror">
                             </div>
+                            @error('image')
+                            <div class="text-sm text-red-400">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="title" class="block text-sm font-medium text-gray-700">Price</label>
                             <div class="mt-1">
-                                <input type="number"  name="price" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <input type="number"  name="price" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 @error('price') border-red-500 @enderror">
                             </div>
+                            @error('price')
+                            <div class="text-sm text-red-400">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
                             <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
                             <div class="mt-1">
-                                <textarea rows="3"  name="description" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400">
+                                <textarea rows="3"  name="description" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 @error('description') border-red-500 @enderror">
                                 </textarea>
                             </div>
+                            @error('description')
+                            <div class="text-sm text-red-400">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="sm:col-span-6">
-                            <label for="body" class="block text-sm font-medium text-gray-700">Description</label>
+                            <label for="body" class="block text-sm font-medium text-gray-700">Categories</label>
                             <div class="mt-1">
-                                <select id="categories" name="categories[]" multiple>
+                                <select id="categories" name="categories[]" multiple class="@error('categories') border-red-500 @enderror">
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
